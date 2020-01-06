@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Local
-    'users.apps.UsersConfig', # new
+    'users.apps.UsersConfig',
+    'InventoryModule.apps.InventorymoduleConfig', 
 ]
 
 MIDDLEWARE = [
