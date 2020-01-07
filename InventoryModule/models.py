@@ -11,12 +11,12 @@ class Item(models.Model):
     description = models.TextField()
     category = models.ForeignKey(
         Category,
-        on_delete=models.CASCADE
+        on_delete=models.PROTECT
     )
 
 class Stock(models.Model):
     item = models.ForeignKey(
-        Item, on_delete=models.CASCADE
+        Item, on_delete=models.PROTECT
         )
     expiry_date = models.DateField(null=True)
     qty_type = models.IntegerField(
