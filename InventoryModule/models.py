@@ -14,13 +14,26 @@ class Item(models.Model):
         on_delete=models.PROTECT
     )
 
+class Product(Item):
+    brand_name = models.CharField(max_length=50, blank =True)
+
+
+class Book(Item):
+    publisher_name = models.CharField(max_length=100, blank =True)
+    author_name = models.CharField(max_length=100)
+    book_type = models.ForeignKey('BookType', on_delete=models.PROTECT)
+
+
+class BookType(models.Model):
+    name = models.CharField(max_length=100)
+
 class Stock(models.Model):
     item = models.ForeignKey(
         Item, on_delete=models.PROTECT
         )
     expiry_date = models.DateField(null=True)
     qty_type = models.IntegerField(
-        choices=[(1, "KG"), (2, "Ltr"), (3, "Carton/Bundle")]
+        choices=[(1, "KG"), (2, "Ltr"), (3, "Piece"), (4, "Carton/Bundle")]
         )
     num_of_pieces = models.IntegerField(default=1)
     qty = models.IntegerField(default=0)
