@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local
     'users.apps.UsersConfig',
     'InventoryModule.apps.InventorymoduleConfig', 
+    'PurchaseModule.apps.PurchasemoduleConfig', 
 ]
 
 MIDDLEWARE = [
